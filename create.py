@@ -56,5 +56,37 @@ def read_category():
     return data
 
 
+def read_category_detail(name):
+    conn = sqlite3.connect('bot.db')
+    curr = conn.cursor()
+    query = "SELECT name FROM categores WHERE name = ?"
+    data = curr.execute(query, (name, )).fetchone()
+    if data:
+        return True
+    return False
+
+
+def delete_category(name):
+    conn = sqlite3.connect('bot.db')
+    curr = conn.cursor()
+    query = "DELETE FROM categores WHERE name = ?"
+    curr.execute(query, (name, ))
+    conn.commit()
+    conn.close()
+
+
+def update_category(new_name, old_name):
+    conn = sqlite3.connect('bot.db')
+    curr = conn.cursor()
+    query = "UPDATE categores SET name = ? WHERE name = ?"
+    curr.execute(query, (new_name, old_name))
+    conn.commit()
+    conn.close()
+
+
+
+# print(read_category_detail("Jahon adabiyoti"))
+
+
 # for i in read_category():
 #     print(i[0])
