@@ -17,4 +17,12 @@ update_category = Update category🔧
 add_category_text = Enter the category name
 
 
+show_product = Available products✉️  
+add_product = Add product➕  
+rm_product = Delete product🗑️  
+update_product = Update product🔧  
+add_product_text = Enter the product name  
+
+
+
 

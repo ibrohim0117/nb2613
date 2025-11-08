@@ -20,6 +20,17 @@ CREATE TABLE IF NOT EXISTS categores(
     date DATE
     )
 """)
+
+    curr.execute("""
+CREATE TABLE IF NOT EXISTS products(
+    id integer primary key autoincrement,
+    name VARCHAR(90),
+    price INT,
+    image VARCHAR(200),
+    category VARCHAR(50),
+    date DATE
+    )
+""")
     conn.commit()
     conn.close()
 
@@ -84,9 +95,25 @@ def update_category(new_name, old_name):
     conn.close()
 
 
+# add pro
 
-# print(read_category_detail("Jahon adabiyoti"))
+def insert_product(name, price, image, category, date):
+    conn = sqlite3.connect('bot.db')
+    curr = conn.cursor()
+    query = "INSERT INTO products(name, price, image, category, date) VALUES(?, ?, ?, ?, ?)"
+    curr.execute(query, (name, price, image, category, date))
+    conn.commit()
+    conn.close()
 
 
-# for i in read_category():
-#     print(i[0])
+def read_product(category):
+    conn = sqlite3.connect('bot.db')
+    curr = conn.cursor()
+    query = "SELECT name FROM products WHERE category = ?"
+    data = curr.execute(query, (category, )).fetchall()
+    if data:
+        return data
+    return False
+
+
+# print(read_product('Jahon adabiyoti'))

@@ -10,3 +10,14 @@ class DeleteCategory(StatesGroup):
 class UpdateCategory(StatesGroup):
     name = State()
     new_name = State()
+
+
+class AddProduct(StatesGroup):
+    name = State()
+    price = State()
+    image = State()
+    category = State()
+
+
+class ShowProduct(StatesGroup):
+    name = State()

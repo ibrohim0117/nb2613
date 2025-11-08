@@ -15,3 +15,10 @@ rm_category = Kategory o'chirish🗑️
 update_category = Kategory o'zgartirish🔧
 
 add_category_text = Kategory nomini yozing
+
+show_product = Mavjud mahsulotlar✉️
+add_product = Mahsulot qo'shish➕
+rm_product = Mahsulot o'chirish🗑️
+update_product = Mahsulot o'zgartirish🔧
+
+add_product_text = Mahsulot nomini yozing
